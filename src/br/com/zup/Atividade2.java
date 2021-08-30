@@ -15,7 +15,7 @@ public class Atividade2 {
         double valorCombustivel = 0;
         double valorParaPagar = 0;
 
-        if (tipoDeCombustível.equals("álcool") || tipoDeCombustível.equals("gasolina")){
+        if (tipoDeCombustível.equals("álcool") | tipoDeCombustível.equals("gasolina")){
             if(tipoDeCombustível.equals("álcool")){
                 if (litros <= 20){
                     desconto = 0.03;
