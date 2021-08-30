@@ -13,35 +13,48 @@ public class Atividade2 {
 
         double desconto = 0;
         double valorCombustivel = 0;
-        double valorParaPagar = 0;
 
         if (tipoDeCombustível.equals("álcool") | tipoDeCombustível.equals("gasolina")){
+
             if(tipoDeCombustível.equals("álcool")){
-                if (litros <= 20){
+
+                valorCombustivel = 1.90;
+
+                if (litros <= 20 & litros > 0){
                     desconto = 0.03;
                 }
-                else {
+                else if(litros > 20) {
                     desconto = 0.05;
                 }
-                valorCombustivel = 1.90;
+                else{
+                    System.out.println("\nPor favor, insira um valor maior que zero!");
+                }
             }
             else if(tipoDeCombustível.equals("gasolina")){
-                if (litros <= 20){
+
+                valorCombustivel = 2.50;
+
+                if (litros <= 20 & litros > 0){
                     desconto = 0.04;
                 }
-                else {
+                else if (litros > 20){
                     desconto = 0.06;
                 }
-                valorCombustivel = 2.50;
+                else{
+                    System.out.println("\nPor favor, insira um valor maior que zero!");
+                }
             }
 
-            valorParaPagar = (valorCombustivel * litros) - (desconto * litros);
+            double valorTotal = valorCombustivel * litros;
+            double valorParaPagar = valorTotal - (desconto * litros * valorCombustivel);
 
-            System.out.printf("Você abasteceu %.2f litros de %s e ganhou desconto de %.0f%% \n", litros, tipoDeCombustível, desconto * 100);
-            System.out.printf("Você deverá pagar %.2f no total", valorParaPagar);
+            if (litros > 0){
+                System.out.printf("\nVocê abasteceu %.2f litros de %s e ganhou desconto de %.0f%% \n", litros, tipoDeCombustível, desconto * 100);
+                System.out.printf("O valor total seria de R$ %.2f. Com o desconto você pagará R$ %.2f no total!\n", valorTotal, valorParaPagar);
+            }
         }
         else {
-            System.out.println("Dados digitados incorretamente!");
+            System.out.println("\nDados digitados incorretamente!\nInforme se deseja álcool ou gasolina!");
         }
     }
 }
