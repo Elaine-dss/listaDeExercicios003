@@ -18,7 +18,7 @@ public class Atividade2 {
 
             if(tipoDeCombustível.equals("álcool")){
 
-                valorCombustivel = 1.90;
+                valorCombustivel = 1.90 * litros;
 
                 if (litros <= 20 & litros > 0){
                     desconto = 0.03;
@@ -32,7 +32,7 @@ public class Atividade2 {
             }
             else if(tipoDeCombustível.equals("gasolina")){
 
-                valorCombustivel = 2.50;
+                valorCombustivel = 2.50 * litros;
 
                 if (litros <= 20 & litros > 0){
                     desconto = 0.04;
@@ -45,12 +45,11 @@ public class Atividade2 {
                 }
             }
 
-            double valorTotal = valorCombustivel * litros;
-            double valorParaPagar = valorTotal - (desconto * litros * valorCombustivel);
+            double valorParaPagar = valorCombustivel - (desconto * valorCombustivel);
 
             if (litros > 0){
                 System.out.printf("\nVocê abasteceu %.2f litros de %s e ganhou desconto de %.0f%% \n", litros, tipoDeCombustível, desconto * 100);
-                System.out.printf("O valor total seria de R$ %.2f. Com o desconto você pagará R$ %.2f no total!\n", valorTotal, valorParaPagar);
+                System.out.printf("O valor total seria de R$ %.2f. Com o desconto você pagará R$ %.2f no total!\n", valorCombustivel, valorParaPagar);
             }
         }
         else {
